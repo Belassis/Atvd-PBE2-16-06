@@ -18,7 +18,8 @@ class Database {
             port: process.env.DB_PORT,
             waitForConnections: true,
             connectionLimit: 100,
-            queueLimit: 0
+            queueLimit: 0,
+            ssl: { rejectUnauthorized: false }
         });
     }
 
@@ -52,7 +53,8 @@ export async function initializeDatabase() {
             host: process.env.DB_HOST,
             user: process.env.DB_USER,
             password: process.env.DB_PASSWORD,
-            port: process.env.DB_PORT
+            port: process.env.DB_PORT,
+            ssl: { rejectUnauthorized: false }
         });
 
         const dbName = process.env.DB_DATABASE || "S1_R3_R4";
